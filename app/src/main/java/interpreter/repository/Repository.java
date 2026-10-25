@@ -14,7 +14,7 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public PrgState getPrgState() {
+    public PrgState getCrtPrg() {
         return this.prgStates.get(0);
     }
 }
