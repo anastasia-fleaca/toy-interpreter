@@ -1,0 +1,30 @@
+package interpreter.model.adt;
+
+import interpreter.exceptions.ADTException;
+
+import java.util.ArrayList;
+
+public class MyList<T> implements IList<T> {
+    private final ArrayList<T> list = new ArrayList<>();
+
+    @Override
+    public void add(T element) {
+        list.add(element);
+    }
+
+    @Override
+    public T get(int index) throws ADTException {
+        if  (index < 0 || index >= size()) throw new ADTException("index out of bounds");
+        return list.get(index);
+    }
+
+    @Override
+    public int size() {
+        return list.size();
+    }
+
+    @Override
+    public String toString() {
+        return list.toString();
+    }
+}
