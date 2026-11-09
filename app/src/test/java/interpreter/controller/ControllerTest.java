@@ -11,14 +11,21 @@ import interpreter.model.value.IntValue;
 import interpreter.repository.Repository;
 import interpreter.view.Examples;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
-    private static PrgState run(IStmt program) throws MyException {
-        PrgState state = new PrgState(new MyStack<>(), new MyDictionary<>(),
-                new MyList<>(), new MyDictionary<>(),program);
-        new Controller(new Repository(state), false).allStep(); // display off
+    @TempDir
+    Path dir;
+
+    private PrgState run(IStmt program) throws MyException {
+        PrgState state = PrgState.of(program);
+        var repo = new Repository(state, dir.resolve("log.txt").toString());
+        new Controller(repo,false).allStep(); // display off
         return state;
     }
 
@@ -47,10 +54,19 @@ class ControllerTest {
     void oneStepOnEmptyStackThrowsException() throws MyException {
         PrgState state = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), new NopStmt());
         state.getExeStack().pop();
-        Controller controller = new Controller(new Repository(state), false);
+        Controller controller = new Controller(new Repository(state, dir.resolve("empty.log").toString()), false);
         assertThrows(MyException.class, () -> {
             controller.oneStep(state);
         });
+    }
+
+    @Test
+    void logFileContainsTheFourSectionsInOrder() throws Exception {
+        run(Examples.EX1);
+        String log = Files.readString(dir.resolve("log.txt"));
+        int a = log.indexOf("ExeStack:"), b = log.indexOf("SymTable:"),
+                c = log.indexOf("Out:"), d = log.indexOf("FileTable:");
+        assertTrue(0 <= a && a < b && b < c && c < d);
     }
 }
 

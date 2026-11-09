@@ -75,7 +75,7 @@ public class View {
         }
 
         PrgState prgState = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), selectedProgram);
-        IRepository repo = new Repository(prgState);
+        IRepository repo = new Repository(prgState, "log.txt");
         return new Controller(repo, true);
     }
 }
