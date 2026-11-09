@@ -22,7 +22,7 @@ public class View {
         while (true) {
             System.out.println("\ntoy interpreter menu");
             System.out.println("1. select a program");
-            System.out.println("2. sun the selected program");
+            System.out.println("2. run the selected program");
             System.out.println("0. exit");
             System.out.print("choose an option: ");
 

@@ -47,13 +47,13 @@ public class ArithExpTest {
     }
 
     @Test
-    void testDivisionByZeroThrowsException() throws  MyException {
+    void testDivisionByZeroThrowsException() {
         IExp exp = new ArithExp(ArithOp.DIV, new ValueExp(new IntValue(10)), new ValueExp(new IntValue(0)));
         assertThrows(ExpressionException.class, () -> exp.eval(symTable));
     }
 
     @Test
-    void testNonIntegerOperandThrowsException() throws MyException {
+    void testNonIntegerOperandThrowsException() {
         IExp exp = new ArithExp(ArithOp.ADD, new ValueExp(new IntValue(10)), new ValueExp(new BoolValue(true)));
         assertThrows(ExpressionException.class, () -> exp.eval(symTable));
     }
