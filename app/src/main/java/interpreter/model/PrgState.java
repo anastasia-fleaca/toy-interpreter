@@ -20,6 +20,7 @@ public class PrgState {
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
+        this.fileTable = fileTable;
         this.originalProgram = program;
         exeStack.push(program);
     }
