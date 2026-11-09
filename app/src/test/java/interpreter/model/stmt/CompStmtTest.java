@@ -18,7 +18,7 @@ class CompStmtTest {
         IStmt stmt1 = new PrintStmt(new ValueExp(new IntValue(1)));
         IStmt stmt2 = new PrintStmt(new ValueExp(new IntValue(2)));
         IStmt comp = new CompStmt(stmt1, stmt2);
-        PrgState state = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new NopStmt());
+        PrgState state = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), new NopStmt());
         state.getExeStack().pop();
         comp.execute(state);
         assertEquals(stmt1, state.getExeStack().pop());

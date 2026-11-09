@@ -28,6 +28,18 @@ public class MyDictionary<K,V> implements IDictionary<K,V> {
     }
 
     @Override
+    public void remove(K x) throws ADTException {
+        if(!dictionary.containsKey(x)) throw new ADTException("the key isn't in the dictionary");
+        dictionary.remove(x);
+    }
+
+    @Override
+    public Map<K,V> toMap()
+    {
+        return Map.copyOf(dictionary);
+    }
+
+    @Override
     public boolean isDefined(K x){
         return dictionary.containsKey(x);
     }
@@ -37,4 +49,5 @@ public class MyDictionary<K,V> implements IDictionary<K,V> {
         return dictionary.toString();
     }
 }
+
 
