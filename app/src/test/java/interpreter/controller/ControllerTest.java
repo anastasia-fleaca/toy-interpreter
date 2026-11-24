@@ -8,7 +8,10 @@ import interpreter.model.adt.MyList;
 import interpreter.model.adt.MyStack;
 import interpreter.model.stmt.IStmt;
 import interpreter.model.stmt.NopStmt;
+import interpreter.model.type.IntType;
+import interpreter.model.type.RefType;
 import interpreter.model.value.IntValue;
+import interpreter.model.value.RefValue;
 import interpreter.repository.Repository;
 import interpreter.view.Examples;
 import org.junit.jupiter.api.Test;
@@ -95,6 +98,52 @@ class ControllerTest {
         PrgState state = run(Examples.EX5);
         assertEquals(1, state.getOut().toList().size());
         assertEquals(new IntValue(5), state.getOut().get(0));
+    }
+
+    @Test
+    void ex6AllocatesAndReadsHeap() throws MyException {
+        PrgState state = run(Examples.EX6);
+        assertTrue(state.getExeStack().isEmpty());
+        assertEquals(1, state.getOut().toList().size());
+        assertEquals(new IntValue(20), state.getOut().get(0));
+    }
+
+    @Test
+    void ex7PrintsNestedReferenceValues() throws MyException {
+        PrgState state = run(Examples.EX7);
+        assertTrue(state.getExeStack().isEmpty());
+        assertEquals(2, state.getOut().toList().size());
+        assertEquals(new RefValue(1, new IntType()), state.getOut().get(0));
+        assertEquals(new RefValue(2, new RefType(new IntType())), state.getOut().get(1));
+    }
+
+    @Test
+    void ex8ReadsAndUpdatesHeap() throws MyException {
+        PrgState state = run(Examples.EX8);
+        assertTrue(state.getExeStack().isEmpty());
+        assertEquals(2, state.getOut().toList().size());
+        assertEquals(new IntValue(20), state.getOut().get(0));
+        assertEquals(new IntValue(35), state.getOut().get(1));
+    }
+
+    @Test
+    void ex9PreservesTransitivelyReferencedHeapValue() throws MyException {
+        PrgState state = run(Examples.EX9);
+        assertTrue(state.getExeStack().isEmpty());
+        assertEquals(1, state.getOut().toList().size());
+        assertEquals(new IntValue(20), state.getOut().get(0));
+    }
+
+    @Test
+    void ex10WhileLoopCountsDownToZero() throws MyException {
+        PrgState state = run(Examples.EX10);
+        assertTrue(state.getExeStack().isEmpty());
+        assertEquals(5, state.getOut().toList().size());
+        assertEquals(new IntValue(4), state.getOut().get(0));
+        assertEquals(new IntValue(3), state.getOut().get(1));
+        assertEquals(new IntValue(2), state.getOut().get(2));
+        assertEquals(new IntValue(1), state.getOut().get(3));
+        assertEquals(new IntValue(0), state.getOut().get(4));
     }
 }
 
