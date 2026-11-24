@@ -4,6 +4,7 @@ import interpreter.exceptions.ADTException;
 import interpreter.exceptions.MyException;
 import interpreter.model.PrgState;
 import interpreter.model.adt.MyDictionary;
+import interpreter.model.adt.MyHeap;
 import interpreter.model.adt.MyList;
 import interpreter.model.adt.MyStack;
 import interpreter.model.exp.ValueExp;
@@ -18,7 +19,7 @@ class PrintStmtTest {
 
     @BeforeEach
     void setUp() throws ADTException {
-        state = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), new NopStmt());
+        state = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), new MyHeap(), new NopStmt());
         state.getExeStack().pop();
     }
 
