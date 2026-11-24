@@ -2,7 +2,9 @@ package interpreter.model.exp;
 
 import interpreter.exceptions.ExpressionException;
 import interpreter.exceptions.MyException;
+import interpreter.model.adt.IHeap;
 import interpreter.model.adt.MyDictionary;
+import interpreter.model.adt.MyHeap;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IValue;
 import interpreter.model.value.IntValue;
@@ -14,75 +16,77 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RelationalExpTest {
     private MyDictionary<String, IValue> symTable;
+    private MyHeap heap;
 
     @BeforeEach
     void setUp() {
         symTable = new MyDictionary<>();
+        heap = new MyHeap();
     }
 
     @Test
     void nonIntegerOperandThrowsException() {
         IExp exp = new RelationalExp(RelOp.EQ,new ValueExp(new BoolValue(true)), new ValueExp(new BoolValue(true)));
-        assertThrows(ExpressionException.class, () -> exp.eval(symTable));
+        assertThrows(ExpressionException.class, () -> exp.eval(symTable, heap));
     }
 
     @Test
     void greaterThanIntegerOperandWorksCorrect() throws MyException {
         IExp exp1 = new RelationalExp(RelOp.GT,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(6)));
-        assertEquals(new BoolValue(true),exp1.eval(symTable));
+        assertEquals(new BoolValue(true),exp1.eval(symTable, heap));
         IExp exp2 = new RelationalExp(RelOp.GT,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(11)));
-        assertEquals(new BoolValue(false),exp2.eval(symTable));
+        assertEquals(new BoolValue(false),exp2.eval(symTable, heap));
         IExp exp3 = new RelationalExp(RelOp.GT,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(false),exp3.eval(symTable));
+        assertEquals(new BoolValue(false),exp3.eval(symTable, heap));
     }
 
     @Test
     void lessThanIntegerOperandWorksCorrect() throws MyException {
         IExp exp1 = new RelationalExp(RelOp.LT,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(12)));
-        assertEquals(new BoolValue(true),exp1.eval(symTable));
+        assertEquals(new BoolValue(true),exp1.eval(symTable, heap));
         IExp exp2 = new RelationalExp(RelOp.LT,new ValueExp(new IntValue(14)), new ValueExp(new IntValue(11)));
-        assertEquals(new BoolValue(false),exp2.eval(symTable));
+        assertEquals(new BoolValue(false),exp2.eval(symTable, heap));
         IExp exp3 = new RelationalExp(RelOp.LT,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(false),exp3.eval(symTable));
+        assertEquals(new BoolValue(false),exp3.eval(symTable, heap));
     }
 
     @Test
     void equalsIntegerOperandWorksCorrect() throws MyException {
         IExp exp1 = new RelationalExp(RelOp.EQ,new ValueExp(new IntValue(6)), new ValueExp(new IntValue(6)));
-        assertEquals(new BoolValue(true),exp1.eval(symTable));
+        assertEquals(new BoolValue(true),exp1.eval(symTable, heap));
         IExp exp2 = new RelationalExp(RelOp.EQ,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(11)));
-        assertEquals(new BoolValue(false),exp2.eval(symTable));
+        assertEquals(new BoolValue(false),exp2.eval(symTable, heap));
         IExp exp3 = new RelationalExp(RelOp.EQ,new ValueExp(new IntValue(11)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(false),exp3.eval(symTable));
+        assertEquals(new BoolValue(false),exp3.eval(symTable, heap));
     }
 
     @Test
     void greaterThanOrEqualIntegerOperandWorksCorrect() throws MyException {
         IExp exp1 = new RelationalExp(RelOp.GE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(6)));
-        assertEquals(new BoolValue(true),exp1.eval(symTable));
+        assertEquals(new BoolValue(true),exp1.eval(symTable, heap));
         IExp exp2 = new RelationalExp(RelOp.GE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(11)));
-        assertEquals(new BoolValue(false),exp2.eval(symTable));
+        assertEquals(new BoolValue(false),exp2.eval(symTable, heap));
         IExp exp3 = new RelationalExp(RelOp.GE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(true),exp3.eval(symTable));
+        assertEquals(new BoolValue(true),exp3.eval(symTable, heap));
     }
 
     @Test
     void lessThanOrEqualIntegerOperandWorksCorrect() throws MyException {
         IExp exp1 = new RelationalExp(RelOp.LE,new ValueExp(new IntValue(4)), new ValueExp(new IntValue(6)));
-        assertEquals(new BoolValue(true),exp1.eval(symTable));
+        assertEquals(new BoolValue(true),exp1.eval(symTable,heap));
         IExp exp2 = new RelationalExp(RelOp.LE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(7)));
-        assertEquals(new BoolValue(false),exp2.eval(symTable));
+        assertEquals(new BoolValue(false),exp2.eval(symTable,heap));
         IExp exp3 = new RelationalExp(RelOp.LE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(true),exp3.eval(symTable));
+        assertEquals(new BoolValue(true),exp3.eval(symTable,heap));
     }
 
     @Test
     void notEqualIntegerOperandWorksCorrect() throws MyException {
         IExp exp1 = new RelationalExp(RelOp.NE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(false),exp1.eval(symTable));
+        assertEquals(new BoolValue(false),exp1.eval(symTable,heap));
         IExp exp2 = new RelationalExp(RelOp.NE,new ValueExp(new IntValue(8)), new ValueExp(new IntValue(9)));
-        assertEquals(new BoolValue(true),exp2.eval(symTable));
+        assertEquals(new BoolValue(true),exp2.eval(symTable,heap));
         IExp exp3 = new RelationalExp(RelOp.NE,new ValueExp(new IntValue(9)), new ValueExp(new IntValue(8)));
-        assertEquals(new BoolValue(true),exp3.eval(symTable));
+        assertEquals(new BoolValue(true),exp3.eval(symTable,heap));
     }
 }

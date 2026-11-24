@@ -2,6 +2,7 @@ package interpreter.model.exp;
 
 import interpreter.exceptions.MyException;
 import interpreter.model.adt.MyDictionary;
+import interpreter.model.adt.MyHeap;
 import interpreter.model.value.IntValue;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,6 @@ class ValueExpTest {
     @Test
     void evalReturnsValue() throws MyException {
         ValueExp exp = new ValueExp(new IntValue(10));
-        assertEquals(new IntValue(10), exp.eval(new MyDictionary<>()));
+        assertEquals(new IntValue(10), exp.eval(new MyDictionary<>(),new MyHeap()));
     }
 }

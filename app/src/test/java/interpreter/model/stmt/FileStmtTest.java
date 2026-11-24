@@ -48,7 +48,7 @@ class FileStmtTest {
     @Test
     void openAddsFileToTheFileTable() throws MyException {
         new OpenRFileStmt(file).execute(state);
-        StringValue fileVal = (StringValue) file.eval(state.getSymTable());
+        StringValue fileVal = (StringValue) file.eval(state.getSymTable(),state.getHeap());
         assertTrue(state.getFileTable().isDefined(fileVal));
     }
     @Test
@@ -99,7 +99,7 @@ class FileStmtTest {
     void closingFileRemovesFromFileTable() throws MyException {
         new OpenRFileStmt(file).execute(state);
         new CloseRFileStmt(file).execute(state);
-        StringValue fileVal = (StringValue) file.eval(state.getSymTable());
+        StringValue fileVal = (StringValue) file.eval(state.getSymTable(), state.getHeap());
         assertFalse(state.getFileTable().isDefined(fileVal));
     }
     @Test
