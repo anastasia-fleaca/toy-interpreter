@@ -1,0 +1,800 @@
+ExeStack:
+(string varf; (varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+string varf
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+varf = "test4.in"
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+openRFile(varf)
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+int varc
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+test4.in
+
+ExeStack:
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+
+ExeStack:
+(string varf; (varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+string varf
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+varf = "test4.in"
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+openRFile(varf)
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+int varc
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+test4.in
+
+ExeStack:
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+
+ExeStack:
+(string varf; (varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+string varf
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+varf = "test4.in"
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+openRFile(varf)
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+int varc
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+test4.in
+
+ExeStack:
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+
+ExeStack:
+(string varf; (varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+string varf
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+varf = "test4.in"
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+openRFile(varf)
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+int varc
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varf --> "test4.in"
+varc --> 0
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varf --> "test4.in"
+varc --> 0
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varf --> "test4.in"
+varc --> 15
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varf --> "test4.in"
+varc --> 15
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varf --> "test4.in"
+varc --> 15
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; closeRFile(varf))
+SymTable:
+varf --> "test4.in"
+varc --> 15
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; closeRFile(varf))
+SymTable:
+varf --> "test4.in"
+varc --> 50
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+closeRFile(varf)
+SymTable:
+varf --> "test4.in"
+varc --> 50
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+closeRFile(varf)
+SymTable:
+varf --> "test4.in"
+varc --> 50
+Out:
+15
+50
+FileTable:
+test4.in
+
+ExeStack:
+SymTable:
+varf --> "test4.in"
+varc --> 50
+Out:
+15
+50
+FileTable:
+
+ExeStack:
+(string varf; (varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+string varf
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+Out:
+FileTable:
+
+ExeStack:
+(varf = "test4.in"; (openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+varf = "test4.in"
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> ""
+Out:
+FileTable:
+
+ExeStack:
+(openRFile(varf); (int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+openRFile(varf)
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+
+ExeStack:
+(int varc; (readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+int varc
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; (readFile(varf, varc); (print varc; closeRFile(varf)))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 0
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; (readFile(varf, varc); (print varc; closeRFile(varf))))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+FileTable:
+test4.in
+
+ExeStack:
+(readFile(varf, varc); (print varc; closeRFile(varf)))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+readFile(varf, varc)
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 15
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+(print varc; closeRFile(varf))
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+print varc
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+FileTable:
+test4.in
+
+ExeStack:
+closeRFile(varf)
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+test4.in
+
+ExeStack:
+SymTable:
+varc --> 50
+varf --> "test4.in"
+Out:
+15
+50
+FileTable:
+

@@ -16,7 +16,7 @@ public record ReadFileStmt(IExp exp, String varName) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {
         var symTable = state.getSymTable();
-        if(!symTable.isDefined(varName))
+        if (!symTable.isDefined(varName))
             throw new StatementException("readFile: " + varName + " is not defined");
         if (!(symTable.lookup(varName) instanceof IntValue))
             throw new StatementException("readFile: " + varName + " is not of type int");
@@ -26,7 +26,7 @@ public record ReadFileStmt(IExp exp, String varName) implements IStmt {
         if (!fileTable.isDefined(fileName))
             throw new StatementException("readFile: " + fileName + " is not in the file table");
         try {
-            BufferedReader reader=fileTable.lookup(fileName);
+            BufferedReader reader = fileTable.lookup(fileName);
             String line = reader.readLine();
             int value;
             if (line == null) {
@@ -38,12 +38,15 @@ public record ReadFileStmt(IExp exp, String varName) implements IStmt {
         } catch (IOException e) {
             throw new StatementException("readFile: cannot read " + fileName
                     + ": " + e.getMessage());
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new StatementException("readFile: invalid integer in file " + fileName
                     + ": " + e.getMessage());
         }
         return state;
     }
-    @Override public String toString() { return "readFile(" + exp + ", " + varName + ")"; }
+
+    @Override
+    public String toString() {
+        return "readFile(" + exp + ", " + varName + ")";
+    }
 }
